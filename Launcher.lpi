@@ -57,6 +57,7 @@
         <Filename Value="versionform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Version"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit3>
     </Units>

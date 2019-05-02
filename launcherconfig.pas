@@ -10,7 +10,7 @@ uses
 
 type
 
-   { TLauncherConfig }
+  { TLauncherConfig }
 
   TLauncherConfig = class(TForm)
      protected
@@ -54,7 +54,22 @@ end;
 procedure TLauncherConfig.ReadConfig(AINIPathname : String);
 var
   LINIFile: TIniFile;
+
 begin
+  LINIFile := nil;
+
+  // First check to see if a configuration file with the same name as the application exists,
+  // if not, then check for a configuration file called 'configuration.ini'
+  if not FileExists(AINIPathname) then
+  begin
+    AINIPathname := ExtractFilePath(AINIPathname) + 'configuration.ini';
+    if not FileExists(AINIPathname) then
+    begin
+      MessageDlg('An Error has Occurred!', 'Cound not find a valid configuration file.', mtError, [mbOK], '');
+      exit;
+    end;
+  end;
+
   try
     LINIFile := TINIFile.Create(AINIPathname);
 
@@ -65,7 +80,7 @@ begin
     FWebpageURL := LINIFile.ReadString('Settings', 'web', '');
 
   finally
-    if Assigned(LINIFile) then
+    if Assigned(LINIFile) and not (LINIFile = nil) then
       LINIFile.Free;
 
   end;
