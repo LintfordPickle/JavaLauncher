@@ -1,7 +1,7 @@
 # JavaLauncher (LDLibrary)
 A Windows executable java launcher
 
-# Usuage
+# Usage
 Place the Launcher.exe next to your .jar file. Create a Launcher.ini file, and insert:
 
 ```
