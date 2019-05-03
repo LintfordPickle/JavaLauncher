@@ -8,8 +8,9 @@
       <Unit0>
         <Filename Value="Launcher.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="14" Y="13"/>
+        <CursorPos X="78" Y="21"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -20,10 +21,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="7"/>
-        <CursorPos X="19" Y="44"/>
+        <CursorPos X="58" Y="72"/>
         <FoldState Value=" T4606 TMjK221 T7IBK T8U24]D3i40K5 T1i50J]86iU08 T0j4232y"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
@@ -35,7 +35,6 @@
         <UnitName Value="LauncherConfig"/>
         <EditorIndex Value="2"/>
         <CursorPos X="3" Y="13"/>
-        <FoldState Value=" T4602 TMiH21 T7EKJ T8F52]K3d0C]K6e0[R41i008]80iK271~"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit2>
