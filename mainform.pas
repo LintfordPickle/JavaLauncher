@@ -22,9 +22,11 @@ type
     LaunchButton: TButton;
     SettingsButton: TButton;
     ExitButton: TButton;
+
+    procedure Initialize(AConfiguration: TLauncherConfig);
+
     procedure ExitButtonClick(Sender: TObject);
     procedure InfoButtonClick(Sender: TObject);
-    procedure Initialize;
     procedure LaunchButtonClick(Sender: TObject);
     procedure WebButtonClick(Sender: TObject);
 
@@ -143,7 +145,7 @@ begin
   else FVersionWindow.SetFocus;
 end;
 
-procedure TForm1.Initialize;
+procedure TForm1.Initialize(AConfiguration: TLauncherConfig);
 begin
   FLauncherConfig := TLauncherConfig.Create;
 

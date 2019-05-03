@@ -7,6 +7,7 @@ object Form1: TForm1
   ClientHeight = 281
   ClientWidth = 366
   Position = poScreenCenter
+  LCLVersion = '2.0.2.0'
   object LaunchButton: TButton
     Left = 64
     Height = 37

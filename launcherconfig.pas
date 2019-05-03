@@ -26,10 +26,13 @@ type
      public
        constructor Create; overload;
 
+       // creates a configuration file from command line options
+       procedure CreateConfigFile;
+
        property JRELocation:          String read FJRELocation;
        property ApplcationName:       String read FApplicationName;
        property ApplicationParams:    String read FApplicationParams;
-	   property WebPageURL:   		  String read FWebpageURL;
+       property WebPageURL:           String read FWebpageURL;
 
   end;
 
@@ -48,6 +51,45 @@ begin
   LINIPathname := ChangeFileExt(LINIPathname, '.ini');
 
   ReadConfig(LINIPathname);
+
+end;
+
+procedure TLauncherConfig.CreateConfigFile;
+var
+  LIniFile:            TIniFile;
+  LConfigPath:         String;
+
+  LJRELocation:        String;
+  LApplicationName:    String;
+  LApplicationJARName: String;
+  LApplicationParams:  String;
+  LWebAddress:         String;
+
+begin
+  // Set the name of the configuration file to that of the application (with extension .ini)
+  LConfigPath := ParamStr(0);
+  LConfigPath := ChangeFileExt(LConfigPath, '.ini');
+  LIniFile := TIniFile.Create(LConfigPath);
+
+  // Figure out what was handed to us on the command line
+  LJRELocation := Application.GetOptionValue('jre');
+  LApplicationName := Application.GetOptionValue('n','N');
+  LApplicationJARName := Application.GetOptionValue('j', 'J');
+  LApplicationParams := Application.GetOptionValue('p', 'P');
+  LWebAddress := Application.GetOptionValue('w', 'W');
+
+  try
+    LIniFile.WriteString('Settings', 'jre',     LJRELocation);
+    LIniFile.WriteString('Settings', 'appname', LApplicationName);
+    LIniFile.WriteString('Settings', 'app',     LApplicationJARName);
+    LIniFile.WriteString('Settings', 'params',  LApplicationParams);
+    LIniFile.WriteString('Settings', 'web',     LWebAddress);
+
+    LIniFile.UpdateFile;
+
+  finally
+    LIniFile.free;
+  end;
 
 end;
 
