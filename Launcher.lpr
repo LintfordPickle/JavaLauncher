@@ -29,7 +29,8 @@ begin
   begin
     GConfiguration.CreateConfigFile;
     exit;
-  end;
+  end else // otherwise load config from file
+    GConfiguration.LoadConfigFile;
 
   // Change the application icon
   GAppIconFilename := ParamStr(0);

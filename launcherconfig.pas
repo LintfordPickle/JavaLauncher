@@ -21,13 +21,14 @@ type
        FApplicationName:     String;
        FApplicationParams:   String;
 	   
-	   FWebpageURL:          String;
+       FWebpageURL:          String;
 
      public
        constructor Create; overload;
 
        // creates a configuration file from command line options
        procedure CreateConfigFile;
+       procedure LoadConfigFile;
 
        property JRELocation:          String read FJRELocation;
        property ApplcationName:       String read FApplicationName;
@@ -41,12 +42,16 @@ implementation
 { TLauncherConfig }
 
 constructor TLauncherConfig.Create;
+begin
+  inherited;
+
+end;
+
+procedure TLauncherConfig.LoadConfigFile;
 var
   LINIPathname: String;
 
 begin
-  inherited;
-
   LINIPathname := ParamStr(0);
   LINIPathname := ChangeFileExt(LINIPathname, '.ini');
 

@@ -88,6 +88,7 @@ begin
   LApplicationParams  := Configuration.ApplicationParams;
 
   LPath               := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)));
+  LJRELocation        := IncludeTrailingPathDelimiter(LJRELocation);
 
   if LJRELocation = ''  then
   begin
@@ -103,7 +104,7 @@ begin
 
 
   // Execute the application
-  ExecuteResult       := ShellExecute(0, nil, PChar(LPath + LJRELocation + '\bin\java.exe'), PChar('-jar ' + LApplicationName + '.jar ' + LApplicationParams), nil, 0);
+  ExecuteResult       := ShellExecute(0, nil, PChar(LPath + LJRELocation + 'bin\java.exe'), PChar('-jar ' + LApplicationName + '.jar ' + LApplicationParams), nil, 0);
 
 
   // If the application was launched successfully, then close the launcher
@@ -147,7 +148,10 @@ end;
 
 procedure TForm1.Initialize(AConfiguration: TLauncherConfig);
 begin
-  FLauncherConfig := TLauncherConfig.Create;
+  if AConfiguration = nil then
+     AConfiguration := TLauncherConfig.Create;
+
+  FLauncherConfig := AConfiguration;
 
 end;
 
