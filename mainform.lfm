@@ -3,7 +3,7 @@ object Form1: TForm1
   Height = 281
   Top = 369
   Width = 366
-  Caption = 'Excavation'
+  Caption = 'JavaLauncher'
   ClientHeight = 281
   ClientWidth = 366
   Position = poScreenCenter

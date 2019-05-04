@@ -6,7 +6,12 @@ interface
 
 uses
   // System
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, IniFiles;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, IniFiles, ShellApi;
+
+const
+  cDefaultAppName = 'JavaLauncher';
+  cDefaultJRELocation = 'JRE';
+  cDefaultFileName = 'core';
 
 type
 
@@ -19,7 +24,10 @@ type
      private
        FJRELocation:         String;
        FApplicationName:     String;
+       FApplicationFilename: String;
        FApplicationParams:   String;
+
+       FJREAvailable:        Boolean;
 	   
        FWebpageURL:          String;
 
@@ -29,9 +37,13 @@ type
        // creates a configuration file from command line options
        procedure CreateConfigFile;
        procedure LoadConfigFile;
+       procedure PerformStartupChecks;
+
+       property IsJREAvailable:       Boolean read FJREAvailable;
 
        property JRELocation:          String read FJRELocation;
        property ApplcationName:       String read FApplicationName;
+       property ApplcationFileName:   String read FApplicationFilename;
        property ApplicationParams:    String read FApplicationParams;
        property WebPageURL:           String read FWebpageURL;
 
@@ -44,6 +56,8 @@ implementation
 constructor TLauncherConfig.Create;
 begin
   inherited;
+
+  FJREAvailable := False;
 
 end;
 
@@ -78,15 +92,15 @@ begin
 
   // Figure out what was handed to us on the command line
   LJRELocation := Application.GetOptionValue('jre');
-  LApplicationName := Application.GetOptionValue('n','N');
-  LApplicationJARName := Application.GetOptionValue('j', 'J');
-  LApplicationParams := Application.GetOptionValue('p', 'P');
+  LApplicationName := Application.GetOptionValue('n','Name');
+  LApplicationJARName := Application.GetOptionValue('j', 'Jar');
+  LApplicationParams := Application.GetOptionValue('p', 'Params');
   LWebAddress := Application.GetOptionValue('w', 'W');
 
   try
     LIniFile.WriteString('Settings', 'jre',     LJRELocation);
     LIniFile.WriteString('Settings', 'appname', LApplicationName);
-    LIniFile.WriteString('Settings', 'app',     LApplicationJARName);
+    LIniFile.WriteString('Settings', 'appfile', LApplicationJARName);
     LIniFile.WriteString('Settings', 'params',  LApplicationParams);
     LIniFile.WriteString('Settings', 'web',     LWebAddress);
 
@@ -120,15 +134,65 @@ begin
   try
     LINIFile := TINIFile.Create(AINIPathname);
 
-    FJRELocation := LINIFile.ReadString('Settings', 'jre', '');
-    FApplicationName := LINIFile.ReadString('Settings', 'app', '');
-    FApplicationParams := LINIFile.ReadString('Settings', 'params', '');
+    FJRELocation         := LINIFile.ReadString('Settings', 'jre', cDefaultJRELocation);
+    FApplicationName     := LINIFile.ReadString('Settings', 'appname', cDefaultAppName);
+    FApplicationFilename := LINIFile.ReadString('Settings', 'appfile', cDefaultFileName);
+    FApplicationParams   := LINIFile.ReadString('Settings', 'params', '');
 	
-    FWebpageURL := LINIFile.ReadString('Settings', 'web', '');
+    FWebpageURL          := LINIFile.ReadString('Settings', 'web', '');
 
   finally
     if Assigned(LINIFile) and not (LINIFile = nil) then
       LINIFile.Free;
+
+  end;
+
+  PerformStartupChecks;
+
+end;
+
+procedure TLauncherConfig.PerformStartupChecks;
+var
+  LExecuteResult:   Integer;
+  LPath:            String;
+  LJRELocation:     String;
+
+begin
+
+  // First check the JRE Location from the config file (bundled JRE)
+  LJRELocation        := FJRELocation;
+
+  LPath               := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)));
+  LJRELocation        := LPath + IncludeTrailingPathDelimiter(LJRELocation);
+
+  LJRELocation        := LJRELocation + 'bin\java.exe';
+
+  LExecuteResult := ShellExecute(0, nil, PChar(LJRELocation), PChar(''), nil, 0);
+
+  if LExecuteResult < 32 then
+  begin
+    // Apparantely the location of the bundle JRE is not valid
+    // Check if java is available on the class-path
+    LExecuteResult := ShellExecute(0, nil, PChar('java.exe'), PChar(''), nil, 0);
+
+    if LExecuteResult > 32 then
+    begin
+      // Just calling java.exe should work
+      FJREAvailable := True;
+      FJRELocation  := 'java.exe';
+    end;
+
+    // If by this stage we couldn't find a JRE, then notify the user
+    // TODO: Direct the user to the openJDK download page
+    if FJRELocation = ''  then
+    begin
+      MessageDlg('An Error has Occurred!', 'Couldn''t find a Java Runtime Enviroment (x64)', mtError, [mbOK], '');
+      exit;
+    end;
+
+  end else
+  begin
+    FJRELocation := LJRELocation;
 
   end;
 

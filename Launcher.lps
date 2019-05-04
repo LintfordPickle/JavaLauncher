@@ -4,14 +4,14 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="9">
+    <Units Count="10">
       <Unit0>
         <Filename Value="Launcher.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="19"/>
-        <CursorPos Y="25"/>
-        <UsageCount Value="33"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="13"/>
+        <CursorPos Y="22"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,12 +21,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="75"/>
-        <CursorPos X="77" Y="107"/>
-        <FoldState Value=" T4606 TMjN221 T8W24]73i60K013 T1i70J[A56iW08 T0jD231v"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="42"/>
+        <CursorPos X="112" Y="126"/>
+        <FoldState Value=" T4606 TMjI221 T7IBM T8W24]D3i60K4 T1i70J]86iW08 T0j4232l"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -34,10 +32,12 @@
         <Filename Value="launcherconfig.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LauncherConfig"/>
-        <TopLine Value="59"/>
-        <CursorPos Y="124"/>
-        <FoldState Value=" T4602 TMjL21 T3i00401]A1i103[A56i702]Z0jO271B"/>
-        <UsageCount Value="32"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="52"/>
+        <CursorPos X="73" Y="97"/>
+        <FoldState Value=" T4602 TMjZ2101111 T7JKU T8K52]P3iC0611]A1iD05[A56iL023 T0jc275m"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -48,8 +48,8 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4"/>
-        <CursorPos X="32" Y="12"/>
-        <UsageCount Value="28"/>
+        <CursorPos X="69" Y="19"/>
+        <UsageCount Value="33"/>
       </Unit3>
       <Unit4>
         <Filename Value="mainform.lfm"/>
@@ -58,7 +58,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="77" Y="19"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit4>
       <Unit5>
@@ -67,150 +67,159 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1543"/>
         <CursorPos X="22" Y="1480"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit5>
       <Unit6>
         <Filename Value="F:\IDE\lazarus\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2056"/>
         <CursorPos Y="2072"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="12"/>
       </Unit6>
       <Unit7>
         <Filename Value="F:\IDE\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3931"/>
         <CursorPos X="22" Y="3940"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit7>
       <Unit8>
         <Filename Value="versionform.lfm"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="20" Y="17"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="F:\IDE\lazarus\fpc\3.0.4\source\packages\winunits-base\src\shellapi.pp"/>
+        <UnitName Value="ShellApi"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="1463"/>
+        <CursorPos X="25" Y="1480"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit9>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="50" TopLine="29"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="107" Column="49" TopLine="90"/>
       </Position1>
       <Position2>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="51" TopLine="29"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="106" Column="28" TopLine="90"/>
       </Position2>
       <Position3>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="53" TopLine="29"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="108" Column="29" TopLine="92"/>
       </Position3>
       <Position4>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="28" Column="30" TopLine="10"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="107" Column="12" TopLine="92"/>
       </Position4>
       <Position5>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="32" Column="46" TopLine="10"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="108" Column="14" TopLine="92"/>
       </Position5>
       <Position6>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="33" Column="34" TopLine="13"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="102" Column="39" TopLine="86"/>
       </Position6>
       <Position7>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="36" Column="43" TopLine="13"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="108" Column="29" TopLine="86"/>
       </Position7>
       <Position8>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="28" TopLine="13"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="110" Column="49" TopLine="92"/>
       </Position8>
       <Position9>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="32" Column="57" TopLine="13"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="108" Column="28" TopLine="91"/>
       </Position9>
       <Position10>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="25" TopLine="13"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="100" Column="52" TopLine="77"/>
       </Position10>
       <Position11>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="28" TopLine="13"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="115" Column="3" TopLine="97"/>
       </Position11>
       <Position12>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="33" TopLine="13"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="100" Column="52" TopLine="83"/>
       </Position12>
       <Position13>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="54" TopLine="29"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="112" TopLine="95"/>
       </Position13>
       <Position14>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="55" TopLine="29"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="154" Column="37" TopLine="109"/>
       </Position14>
       <Position15>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="56" TopLine="29"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="86" TopLine="73"/>
       </Position15>
       <Position16>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="58" TopLine="29"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="87" TopLine="73"/>
       </Position16>
       <Position17>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="105" TopLine="31"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="88" TopLine="73"/>
       </Position17>
       <Position18>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="106" TopLine="50"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="94" Column="51" TopLine="80"/>
       </Position18>
       <Position19>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="110" TopLine="50"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="96" TopLine="80"/>
       </Position19>
       <Position20>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="120" TopLine="50"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="98" Column="32" TopLine="86"/>
       </Position20>
       <Position21>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="121" TopLine="50"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="86" TopLine="82"/>
       </Position21>
       <Position22>
-        <Filename Value="launcherconfig.pas"/>
-        <Caret Line="123" TopLine="50"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="87" TopLine="81"/>
       </Position22>
       <Position23>
         <Filename Value="mainform.pas"/>
-        <Caret Line="91" Column="38" TopLine="50"/>
+        <Caret Line="93" Column="44" TopLine="80"/>
       </Position23>
       <Position24>
         <Filename Value="mainform.pas"/>
-        <Caret Line="87" TopLine="50"/>
+        <Caret Line="87" TopLine="80"/>
       </Position24>
       <Position25>
         <Filename Value="mainform.pas"/>
-        <Caret Line="88" TopLine="50"/>
+        <Caret Line="96" Column="29" TopLine="80"/>
       </Position25>
       <Position26>
-        <Filename Value="mainform.pas"/>
-        <Caret Line="90" TopLine="50"/>
+        <Filename Value="Launcher.lpr"/>
+        <Caret Line="22" TopLine="13"/>
       </Position26>
       <Position27>
         <Filename Value="mainform.pas"/>
-        <Caret Line="92" TopLine="50"/>
+        <Caret Line="86" TopLine="80"/>
       </Position27>
       <Position28>
-        <Filename Value="Launcher.lpr"/>
-        <Caret Line="48" Column="17" TopLine="20"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="87" TopLine="80"/>
       </Position28>
       <Position29>
         <Filename Value="mainform.pas"/>
-        <Caret Line="152" Column="39" TopLine="99"/>
+        <Caret Line="88" TopLine="80"/>
       </Position29>
       <Position30>
         <Filename Value="mainform.pas"/>
-        <Caret Line="86" TopLine="47"/>
+        <Caret Line="90" TopLine="80"/>
       </Position30>
     </JumpHistory>
     <RunParams>

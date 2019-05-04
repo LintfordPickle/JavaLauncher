@@ -84,11 +84,8 @@ var
 
 begin
   LJRELocation        := Configuration.JRELocation;
-  LApplicationName    := Configuration.ApplcationName;
+  LApplicationName    := Configuration.ApplcationFileName;
   LApplicationParams  := Configuration.ApplicationParams;
-
-  LPath               := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)));
-  LJRELocation        := IncludeTrailingPathDelimiter(LJRELocation);
 
   if LJRELocation = ''  then
   begin
@@ -102,10 +99,8 @@ begin
     exit;
   end;
 
-
   // Execute the application
-  ExecuteResult       := ShellExecute(0, nil, PChar(LPath + LJRELocation + 'bin\java.exe'), PChar('-jar ' + LApplicationName + '.jar ' + LApplicationParams), nil, 0);
-
+  ExecuteResult       := ShellExecute(0, nil, PChar(LJRELocation), PChar('-jar ' + LApplicationName + '.jar ' + LApplicationParams), nil, 0);
 
   // If the application was launched successfully, then close the launcher
   // return codes below 32 indicate an error occured. Results >32 are the new window
@@ -152,6 +147,8 @@ begin
      AConfiguration := TLauncherConfig.Create;
 
   FLauncherConfig := AConfiguration;
+
+  Caption := AConfiguration.ApplcationName;
 
 end;
 
