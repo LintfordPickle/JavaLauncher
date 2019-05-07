@@ -146,12 +146,13 @@ begin
   try
     LINIFile := TINIFile.Create(AINIPathname);
 
-    FJRELocation         := LINIFile.ReadString('Settings',  'JREPath', cDefaultJRELocation);
-    FApplicationName     := LINIFile.ReadString('Settings',  'AppName', cDefaultAppName);
-    FApplicationFilename := LINIFile.ReadString('Settings',  'AppFile', cDefaultFileName);
-    FStrightLaunch       := LINIFile.ReadInteger('Settings', 'DirectLaunch', 0) = 1;
-    FApplicationParams   := LINIFile.ReadString('Settings',  'Params', '');
-    FWebpageURL          := LINIFile.ReadString('Settings',  'Web', '');
+    FJRELocation         := LINIFile.ReadString('Settings',  'jre', cDefaultJRELocation);
+    FApplicationName     := LINIFile.ReadString('Settings',  'appname', cDefaultAppName);
+    FApplicationFilename := LINIFile.ReadString('Settings',  'appfile', cDefaultFileName);
+    FStrightLaunch       := LINIFile.ReadInteger('Settings', 'directrun', 0) = 1;
+    FApplicationParams   := LINIFile.ReadString('Settings',  'params', '');
+	
+    FWebpageURL          := LINIFile.ReadString('Settings',  'web', '');
 
   finally
     if Assigned(LINIFile) and not (LINIFile = nil) then

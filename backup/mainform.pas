@@ -74,6 +74,8 @@ end;
 // Launches the application
 procedure TForm1.LaunchButtonClick(Sender: TObject);
 var
+  LPath:              String;
+
   LJRELocation:       String;
   LApplicationName:   String;
   LApplicationParams: String;

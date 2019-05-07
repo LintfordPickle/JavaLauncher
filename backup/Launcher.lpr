@@ -54,7 +54,6 @@ begin
 
   end else
   begin
-    // Run the app
     Form1.LaunchButtonClick(nil);
 
   end;
